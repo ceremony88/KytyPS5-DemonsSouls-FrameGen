@@ -11,7 +11,10 @@ Upstream project: https://github.com/chenxiao07/KytyPS5
 > Bluepoint Games, FromSoftware, NVIDIA or the KytyPS5 developers. **No game files are included**: use your own
 > legally dumped copy of Demon's Souls. Provided as is, without warranty.
 
-**Download:** the zip under [Releases](../../releases/latest). Extract it and follow the Quick start below.
+**Download:** `KytyPS5-DemonsSouls-FrameGen.zip` under [Releases](../../releases/latest). Extract it and follow the
+Quick start below. The complete source of the build is the release's `KytyPS5-DemonsSouls-FrameGen-source.zip`
+(KytyPS5 is GPL 2.0, see [LICENSE](LICENSE) and [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)).
+
 ---
 
 ## Quick start
@@ -135,7 +138,10 @@ Generation on.
 
 ---
 
-*Based on KytyPS5 v20261012 by chenxiao07 and the KytyPS5 developers (MIT, see `LICENSE` and
-`LICENSES\`). Frame generation uses NVIDIA Streamline, DLSS Frame Generation and Reflex; their license
-files are in `streamline\bin\x64`. A personal build, not an official release. No game files are
-included.*
+*Based on KytyPS5 v20261012 by chenxiao07 and the KytyPS5 developers, licensed under the GNU GPL 2.0
+(`LICENSE`; the original Kyty code is MIT, `LICENSES\Kyty-MIT.txt`). The complete source of this build is
+the release's `...-source.zip` download; its changes alone are in `source\local-changes.patch`. It
+includes FFmpeg (LGPL 2.1) and other open-source libraries: `THIRD-PARTY-NOTICES.md` lists them with their
+licenses (`LICENSES\third-party\`) and sources. Frame generation uses NVIDIA Streamline, DLSS Frame
+Generation and Reflex; their license files are in `streamline\`. A personal build, not an official
+release. No game files are included.*
