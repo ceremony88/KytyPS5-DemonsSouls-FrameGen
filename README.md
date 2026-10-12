@@ -1,4 +1,4 @@
-# KytyPS5 “ Demon's Souls Frame Generation Build
+# KytyPS5 Demon Souls Frame Generation Build
 
 A tuned Windows build of the **KytyPS5** PS5 emulator (by chenxiao07 and the KytyPS5 developers) for
 **Demon's Souls (PPSA01341)**, based on the upstream release **v20261012**. It adds working DLSS Frame
