@@ -1,4 +1,4 @@
-# KytyPS5 Demon Souls Frame Generation Build
+# KytyPS5 – Demon's Souls Frame Generation Build
 
 A tuned Windows build of the **KytyPS5** PS5 emulator (by chenxiao07 and the KytyPS5 developers) for
 **Demon's Souls (PPSA01341)**, based on the upstream release **v20261012**. It adds working DLSS Frame
@@ -18,7 +18,7 @@ Upstream project: https://github.com/chenxiao07/KytyPS5
 
 1. Extract this folder anywhere (an SSD is best). Keep the files together.
 2. Double-click **`launcher.cmd`**.
-3. **Game folder** â†’ **Browse...** â†’ choose your unpacked game folder: the one that directly contains
+3. **Game folder** → **Browse...** → choose your unpacked game folder: the one that directly contains
    `eboot.bin` and `sce_sys` (usually `PPSA01341-app0`).
 4. Pick your options and press **PLAY**.
 5. **Before you play, run Precompile shaders** (the first launch offers it; also a launcher button). It
@@ -26,16 +26,16 @@ Upstream project: https://github.com/chenxiao07/KytyPS5
    session loads slowly, stutters, and shows **black squares** on the screen until each shader has compiled
    in the background (they go away as you play; nothing is broken).
 
-If Windows SmartScreen warns about the files (they are not signed): **More info â†’ Run anyway**.
+If Windows SmartScreen warns about the files (they are not signed): **More info → Run anyway**.
 
-**In-game hotkeys:** **F1** = FPS counter Â· **F2** = DLSS Frame Generation on/off
+**In-game hotkeys:** **F1** = FPS counter · **F2** = DLSS Frame Generation on/off
 
 ---
 
 ## Precompile shaders (do this once, for a smooth game)
 
 The emulator turns the game's PS5 shaders into shaders for your graphics card. Done while you play, every
-new area, effect and enemy stutters the first time it appears (pauses of 0.1â€“0.4 s). **Precompile shaders**
+new area, effect and enemy stutters the first time it appears (pauses of 0.1–0.4 s). **Precompile shaders**
 does all of that ahead of time, for the whole game:
 
 - **When:** once after installing, and again after a new GPU driver or a new version of this build. The
@@ -65,13 +65,13 @@ does all of that ahead of time, for the whole game:
 
 ## Performance
 
-Measured on **RTX 4080 Â· Core i7-13700K Â· 32 GB RAM Â· NVMe SSD**, 3440x1440 ultrawide:
+Measured on **RTX 4080 · Core i7-13700K · 32 GB RAM · NVMe SSD**, 3440x1440 ultrawide:
 
 | Situation | Result |
 |---|---|
 | Frame Generation on | **~117 fps output** (game ~58), lows ~112 |
-| Heavy areas, native 2560x1440 render | 40â€“49 fps |
-| Heavy areas, **1080p render** (4K output) | mostly 50s to high 50s, rare dips to 48â€“49 |
+| Heavy areas, native 2560x1440 render | 40–49 fps |
+| Heavy areas, **1080p render** (4K output) | mostly 50s to high 50s, rare dips to 48–49 |
 
 ---
 
@@ -88,7 +88,7 @@ Measured on **RTX 4080 Â· Core i7-13700K Â· 32 GB RAM Â· NVMe SSD**, 3440x
 
 **Render resolution:** lowers the PS5 performance mode's internal 3D resolution and keeps the 3840x2160
 output, so the HUD stays sharp and correctly sized; the game's own temporal upscaler rebuilds the image.
-Native (2560x1440) Â· 1260p Â· **1080p** (recommended for heavy areas) Â· 900p. Applied in memory at launch;
+Native (2560x1440) · 1260p · **1080p** (recommended for heavy areas) · 900p. Applied in memory at launch;
 the game files are never modified.
 
 **Ultrawide 3440x1440:** a 43:18 aspect patch for the 3D view, full screen with no black bars (the HUD
@@ -104,33 +104,33 @@ plus the precompiled shaders remove compile stutter.
 | Option | What it does |
 |---|---|
 | Game folder | The game dump (folder with `eboot.bin` and `sce_sys`) or a `.zar` archive |
-| Display mode | Ultrawide 3440x1440 Â· Fullscreen 16:9 with black bars Â· Fullscreen stretched Â· Windowed |
+| Display mode | Ultrawide 3440x1440 · Fullscreen 16:9 with black bars · Fullscreen stretched · Windowed |
 | Window size | The window's size in windowed mode |
 | Render resolution | Native / 1260p / 1080p / 900p internal render, always 4K output |
 | FPS counter | On-screen fps (F1 in game) |
 | Console language | The game's language |
-| Graphics effects | Volumetric fog (~+4.6% off) Â· Torch/spot shadows Â· Contact shadows (~+3% off) Â· Sun shadows (~+8.5% off) Â· Depth of field Â· Bloom Â· Film grain |
+| Graphics effects | Volumetric fog (~+4.6% off) · Torch/spot shadows · Contact shadows (~+3% off) · Sun shadows (~+8.5% off) · Depth of field · Bloom · Film grain |
 | DLSS Frame Generation | Starts with FG on (F2 in game) |
 | Red-zone protection | Stability protection for the game's code (keep on) |
 | Precompile on efficiency cores | Precompile on the E-cores only, so the PC stays usable |
-| Buttons | Play Â· Precompile shaders Â· Logs folder Â· README |
+| Buttons | Play · Precompile shaders · Logs folder · README |
 
 **Always on: the game's GPU culling pass is skipped.** Before drawing each object the game runs a small GPU
 program that throws away its hidden triangles (about 2,800 extra GPU jobs a frame in Boletaria). On a PS5
 that saves work; in the emulator each job costs CPU time, the bottleneck, so the build skips the pass and
 simply draws every triangle: ~6% faster, the picture identical (only triangles you could not see were removed).
 
-**Recommended (RTX 40-series):** Ultrawide or Fullscreen 16:9 Â· Render resolution 1080p Â· Frame
+**Recommended (RTX 40-series):** Ultrawide or Fullscreen 16:9 · Render resolution 1080p · Frame
 Generation on.
 
 ---
 
 ## Files
 
-- `launcher.cmd` â€“ the launcher; `run.cmd` â€“ start without the launcher.
-- `logs\` â€“ a log per session (the launcher's **Logs folder** button). Include the latest one when
+- `launcher.cmd` – the launcher; `run.cmd` – start without the launcher.
+- `logs\` – a log per session (the launcher's **Logs folder** button). Include the latest one when
   reporting a problem.
-- `_SaveData\` â€“ your saves. `_PipelineCache\` â€“ shader caches and the camera layouts. Back up
+- `_SaveData\` – your saves. `_PipelineCache\` – shader caches and the camera layouts. Back up
   `_SaveData` before deleting the folder.
 
 ---
