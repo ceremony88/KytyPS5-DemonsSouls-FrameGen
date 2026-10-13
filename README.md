@@ -2,7 +2,7 @@
 
 A tuned Windows build of the **KytyPS5** PS5 emulator (by chenxiao07 and the KytyPS5 developers) for
 **Demon's Souls (PPSA01341)**, based on the upstream release **v20261012**. It adds working DLSS Frame
-Generation, ultrawide, a render-resolution option and a themed launcher.
+Generation, ultrawide for any ultrawide screen, a render-resolution option and a themed launcher.
 
 Upstream project: https://github.com/chenxiao07/KytyPS5
 
@@ -94,8 +94,10 @@ output, so the HUD stays sharp and correctly sized; the game's own temporal upsc
 Native (2560x1440) · 1260p · **1080p** (recommended for heavy areas) · 900p. Applied in memory at launch;
 the game files are never modified.
 
-**Ultrawide 3440x1440:** a 43:18 aspect patch for the 3D view, full screen with no black bars (the HUD
-and menus stretch sideways).
+**Ultrawide (any ultrawide screen):** the launcher reads your screen's resolution and sets the 3D view to
+its exact aspect ratio: 21:9 (3440x1440, 2560x1080), 3840x1600, 32:9 (5120x1440). Full screen with no black
+bars (the HUD and menus stretch sideways). On a normal 16:9 or 16:10 screen the option shows "needs a 21:9 or
+wider screen" and plays fullscreen 16:9 instead.
 
 **Shader caches:** the pipeline cache survives emulator updates and holds up to 2 GiB; a warm-up at boot
 plus the precompiled shaders remove compile stutter.
@@ -107,7 +109,7 @@ plus the precompiled shaders remove compile stutter.
 | Option | What it does |
 |---|---|
 | Game folder | The game dump (folder with `eboot.bin` and `sce_sys`) or a `.zar` archive |
-| Display mode | Ultrawide 3440x1440 · Fullscreen 16:9 with black bars · Fullscreen stretched · Windowed |
+| Display mode | Ultrawide (your screen's shape, 21:9 or wider) · Fullscreen 16:9 with black bars · Fullscreen stretched · Windowed |
 | Window size | The window's size in windowed mode |
 | Render resolution | Native / 1260p / 1080p / 900p internal render, always 4K output |
 | FPS counter | On-screen fps (F1 in game) |
