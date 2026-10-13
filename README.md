@@ -1,7 +1,7 @@
 # KytyPS5 – Demon's Souls Frame Generation Build
 
 A tuned Windows build of the **KytyPS5** PS5 emulator (by chenxiao07 and the KytyPS5 developers) for
-**Demon's Souls (PPSA01341)**, based on the upstream release **v20261012**. It adds working DLSS Frame
+**Demon's Souls (PPSA01341)**, based on the upstream release **v20261013**. It adds working DLSS Frame
 Generation, ultrawide for any ultrawide screen, a render-resolution option and a themed launcher.
 
 Upstream project: https://github.com/chenxiao07/KytyPS5
@@ -61,7 +61,7 @@ does all of that ahead of time, for the whole game:
 | RAM | 32 GB recommended, 16 GB works (keep the page file "system managed") |
 | GPU | NVIDIA RTX, 12 GB VRAM recommended. **Frame Generation needs an RTX 40-series or newer** and hardware-accelerated GPU scheduling on; other GPUs run without it |
 | Driver | The latest NVIDIA driver |
-| Game | Your own dump of Demon's Souls PPSA01341. The ultrawide and render-resolution patches are for version **01.007.000** |
+| Game | Your own dump of Demon's Souls PPSA01341. Ultrawide needs version **01.007.000**; render resolution works on 01.007.000 and 01.005.000 |
 | Disk | ~83 GB for the game; the shader caches grow to a few GB |
 
 ---
@@ -140,7 +140,7 @@ Generation on.
 
 ---
 
-*Based on KytyPS5 v20261012 by chenxiao07 and the KytyPS5 developers, licensed under the GNU GPL 2.0
+*Based on KytyPS5 v20261013 by chenxiao07 and the KytyPS5 developers, licensed under the GNU GPL 2.0
 (`LICENSE`; the original Kyty code is MIT, `LICENSES\Kyty-MIT.txt`). The complete source of this build is
 the release's `...-source.zip` download; its changes alone are in `source\local-changes.patch`. It
 includes FFmpeg (LGPL 2.1) and other open-source libraries: `THIRD-PARTY-NOTICES.md` lists them with their
