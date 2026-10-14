@@ -1,7 +1,7 @@
 # KytyPS5 – Demon's Souls Frame Generation Build
 
 A tuned Windows build of the **KytyPS5** PS5 emulator (by chenxiao07 and the KytyPS5 developers) for
-**Demon's Souls (PPSA01341)**, based on the upstream release **v20261013**. It adds working DLSS Frame
+**Demon's Souls (PPSA01341)**, based on the upstream release **v20261014**. It adds working DLSS Frame
 Generation, ultrawide for any ultrawide screen, a render-resolution option and a themed launcher.
 
 Upstream project: https://github.com/chenxiao07/KytyPS5
@@ -92,33 +92,40 @@ Measured on **RTX 4080 · Core i7-13700K · 32 GB RAM · NVMe SSD**, 3440x1440 u
 **Render resolution:** lowers the PS5 performance mode's internal 3D resolution and keeps the 3840x2160
 output, so the HUD stays sharp and correctly sized; the game's own temporal upscaler rebuilds the image.
 Native (2560x1440) · 1260p · **1080p** (recommended for heavy areas) · 900p. Applied in memory at launch;
-the game files are never modified.
+the game files are never modified. It uses the game's own temporal upscaler, not DLSS or FSR (DLSS is used only
+for Frame Generation).
 
 **Ultrawide (any ultrawide screen):** the launcher reads your screen's resolution and sets the 3D view to
 its exact aspect ratio: 21:9 (3440x1440, 2560x1080), 3840x1600, 32:9 (5120x1440). Full screen with no black
-bars (the HUD and menus stretch sideways). On a normal 16:9 or 16:10 screen the option shows "needs a 21:9 or
+bars (the HUD and menus stretch sideways). It is a real 21:9 field of view, drawn anamorphically into the game's
+16:9 buffers and stretched back to your screen: geometry is correct, horizontal detail a little below a native
+render. On a normal 16:9 or 16:10 screen the option shows "needs a 21:9 or
 wider screen" and plays fullscreen 16:9 instead.
 
-**Shader caches:** the pipeline cache survives emulator updates and holds up to 2 GiB; a warm-up at boot
+**Shader caches:** the pipeline cache survives emulator updates and holds up to 2 GiB (at most 1/16 of your RAM); a warm-up at boot
 plus the precompiled shaders remove compile stutter.
 
 ---
 
 ## Launcher options
 
-| Option | What it does |
-|---|---|
-| Game folder | The game dump (folder with `eboot.bin` and `sce_sys`) or a `.zar` archive |
-| Display mode | Ultrawide (your screen's shape, 21:9 or wider) · Fullscreen 16:9 with black bars · Fullscreen stretched · Windowed |
-| Window size | The window's size in windowed mode |
-| Render resolution | Native / 1260p / 1080p / 900p internal render, always 4K output |
-| FPS counter | On-screen fps (F1 in game) |
-| Console language | The game's language |
-| Graphics effects | Volumetric fog (~+4.6% off) · Torch/spot shadows · Contact shadows (~+3% off) · Sun shadows (~+8.5% off) · Depth of field · Bloom · Film grain |
-| DLSS Frame Generation | Starts with FG on (F2 in game) |
-| Red-zone protection | Stability protection for the game's code (keep on) |
-| Precompile on efficiency cores | Precompile on the E-cores only, so the PC stays usable |
-| Buttons | Play · Precompile shaders · Logs folder · README |
+The settings are in four tabs under the game folder:
+
+| Tab | Option | What it does |
+|---|---|---|
+| (top) | Game folder | The game dump (folder with `eboot.bin` and `sce_sys`) or a `.zar` archive |
+| Display | Display mode | Ultrawide (your screen's shape, 21:9 or wider) · Fullscreen 16:9 with black bars · Fullscreen stretched · Windowed |
+| Display | Window size | The window's size in windowed mode |
+| Display | Render resolution | Native / 1260p / 1080p / 900p internal render, always 4K output |
+| Display | HDR | HDR10 output (turn on "Use HDR" in Windows display settings first) |
+| Display | VSync | No screen tearing (with Frame Generation, a G-SYNC display is the better choice) |
+| Graphics | Game effects | Volumetric fog (~+4.6% off) · Torch/spot shadows · Contact shadows (~+3% off) · Sun shadows (~+8.5% off) · Depth of field · Bloom · Film grain |
+| Performance | DLSS Frame Generation | Starts with FG on (F2 in game) |
+| Performance | FPS counter | On-screen fps (F1 in game) |
+| System | Console language | The game's language |
+| System | Red-zone protection | Stability protection for the game's code (keep on) |
+| System | Precompile on efficiency cores | Precompile on the E-cores only, so the PC stays usable |
+Buttons below every tab: **PLAY** · Precompile shaders · Logs folder · README.
 
 **Always on: the game's GPU culling pass is skipped.** Before drawing each object the game runs a small GPU
 program that throws away its hidden triangles (about 2,800 extra GPU jobs a frame in Boletaria). On a PS5
@@ -140,7 +147,7 @@ Generation on.
 
 ---
 
-*Based on KytyPS5 v20261013 by chenxiao07 and the KytyPS5 developers, licensed under the GNU GPL 2.0
+*Based on KytyPS5 v20261014 by chenxiao07 and the KytyPS5 developers, licensed under the GNU GPL 2.0
 (`LICENSE`; the original Kyty code is MIT, `LICENSES\Kyty-MIT.txt`). The complete source of this build is
 the release's `...-source.zip` download; its changes alone are in `source\local-changes.patch`. It
 includes FFmpeg (LGPL 2.1) and other open-source libraries: `THIRD-PARTY-NOTICES.md` lists them with their
