@@ -6,11 +6,11 @@ libraries of upstream's release) and `LICENSES\third-party\`; NVIDIA's are in `s
 ## Source code
 
 - **KytyPS5** (**GPL 2.0**, `LICENSE`; it grew from Kyty, MIT, `LICENSES\Kyty-MIT.txt`):
-  https://github.com/chenxiao07/KytyPS5, release tag `v20261013`.
+  https://github.com/chenxiao07/KytyPS5, release tag `v20261014`.
 - **The complete source of this build**: the release's second download, `KytyPS5-DemonsSouls-FrameGen-source.zip`
   (the libraries under `3rdparty\` are git submodules there: their sources are at the links below).
 - **This build's changes** alone: `source\local-changes.patch` in this package (apply with
-  `git apply` in a checkout of `v20261013` with LF line endings, e.g. `git clone -c core.autocrlf=false`; then build as upstream describes, with `-DKYTY_STREAMLINE_SDK=<the
+  `git apply` in a checkout of `v20261014` with LF line endings, e.g. `git clone -c core.autocrlf=false`; then build as upstream describes, with `-DKYTY_STREAMLINE_SDK=<the
   NVIDIA Streamline SDK folder>` for frame generation and `-DKYTY_MARCH=x86-64-v3` for other PCs).
 
 ## Built into kyty_emulator.exe / kyty_shader_precompile.exe
